@@ -12,7 +12,8 @@ func GetEnvWithKey(key string) string {
 	return os.Getenv(key)
 }
 
-func main() *gorm.DB {
+//ConnectToDb: connect to mysql with preloaded .env values
+func ConnectToDb() *gorm.DB {
 	dsn := fmt.Sprintf(
 		GetEnvWithKey("DB_USER"),
 		":",
