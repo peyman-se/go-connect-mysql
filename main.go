@@ -15,6 +15,7 @@ func GetEnvWithKey(key string) string {
 //ConnectToDb: connect to mysql with preloaded .env values
 func ConnectToDb() (*gorm.DB, error) {
 	dsn := fmt.Sprintf(
+		"%s%s%s%s%s%s%s%s%s%s",
 		GetEnvWithKey("DB_USER"),
 		":",
 		GetEnvWithKey("DB_PASSWORD"),
