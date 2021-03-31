@@ -13,7 +13,7 @@ func GetEnvWithKey(key string) string {
 }
 
 //ConnectToDb: connect to mysql with preloaded .env values
-func ConnectToDb() *gorm.DB {
+func ConnectToDb() (*gorm.DB, error) {
 	dsn := fmt.Sprintf(
 		GetEnvWithKey("DB_USER"),
 		":",
@@ -28,9 +28,6 @@ func ConnectToDb() *gorm.DB {
 	)
 
 	DB, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
-	if err != nil {
-		panic("DB connection failed")
-	}
 
-	return DB
+	return DB, err
 }
