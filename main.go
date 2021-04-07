@@ -23,7 +23,7 @@ func ConnectToDb() (*gorm.DB, error) {
 		GetEnvWithKey("DB_HOST"),
 		":",
 		GetEnvWithKey("DB_PORT"),
-		"/",
+		")/",
 		GetEnvWithKey("DB_DATABASE"),
 		"?charset=utf8mb4&parseTime=True&loc=Local",
 	)
